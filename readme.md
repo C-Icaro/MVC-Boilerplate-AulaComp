@@ -1,6 +1,19 @@
+
+
 # Boilerplate MVC em Node.js com PostgreSQL
 
 Este projeto é um boilerplate básico para uma aplicação Node.js seguindo o padrão MVC (Model-View-Controller), utilizando PostgreSQL como banco de dados.
+
+## Aula 05 - Como é o funcionamento do models, controller e endpoints no projeto em 15/05/2025? 
+
+### Models:
+&nbsp;&nbsp;&nbsp;&nbsp;No momento os models aluno, curso e professor fazem requisições, buscas e outras atividades no banco de dados (PostgreSQL com Supabase) como: No models de aluno o método findAllComCurso realiza um left join que busca os alunos referenciados com um dos cursos criados e retorna o resultado para o alunoController em rows.
+
+### Controller:
+&nbsp;&nbsp;&nbsp;&nbsp;Os controllers estão recebendo requisições por advindas de métodos HTTP em routes e declaram essa requisições em funções assincronas que recebem como parâmetro req e res (requisição e resposta). No mais com a informação do método HTTP o controller extrai os atributos que irá necessitar e os envia como parâmetro para o models, aguardando sua resposta para prosseguir e solicitar renderização em view. 
+
+### Endpoints:
+&nbsp;&nbsp;&nbsp;&nbsp;Os endpoints são criados em routes a partir dos métodos HTTP como post, get, render e controlam o sistema por meio da definição do path e do middleware ou função controladora. A sua criação se da por meio de uma instância do objeto router de Express seguido de um método http que esperam um path seguido de uma função. Dessa forma é atribuida uma relação em que no momento em que aquele path for utilizado o método http especificado será requisitado, tal qual a enviará para o controller listado. Também existem rotas com parâmetros dinâmicos para que o método seja aplicado de forma controlada, seja por Id, nome ou outros atributos. 
 
 ## Requisitos
 

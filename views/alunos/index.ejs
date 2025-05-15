@@ -45,6 +45,18 @@
         </form>
       </li>
     <% }) %>
+
+    <!-- Loop para listar todos os cursos e permitir edição -->
+  <% cursos.forEach(curso => { %>
+    <form action="/cursos/edit/<%= curso.id %>" method="POST" style="display:inline;">
+      <input name="nome" value="<%= curso.nome %>" required>
+      <button type="submit">✏️</button>
+    </form>
+    <form action="/cursos/delete/<%= curso.id %>" method="POST" style="display:inline;">
+      <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')">🗑️</button>
+    </form>
+  <% }) %>
+
   </ul>
 </body>
 </html>
